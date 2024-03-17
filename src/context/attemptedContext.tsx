@@ -57,10 +57,6 @@ const DataProvider = ({ children }: Props) => {
     resetState
   };
 
-  useEffect(() => {
-    resetState();
-  })
-
   return (
     <AttemptedContext.Provider value={state}>
       {children}
