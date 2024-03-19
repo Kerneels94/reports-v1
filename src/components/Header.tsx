@@ -5,7 +5,7 @@
  */
 const Header = () => {
     return <> 
-        <div className="navbar bg-base-100 p-4 flex items-center justify-around shadow-lg">
+        <div className="navbar bg-base-100 p-4 flex items-center justify-between shadow-lg">
             <div>
                 <a className="text-xl" href="/">Reports</a>
             </div>
@@ -32,7 +32,7 @@ const Header = () => {
                 </div>
                 {/* Large screens */}
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar sm:hidden lg:block">
                         <div className="w-10 rounded-full">
                         <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                         </div>

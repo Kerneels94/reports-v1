@@ -1,45 +1,39 @@
-import { createContext, useEffect } from "react";
-import { IReport } from "../interfaces/interfaces";
-import React, { useState } from "react";
-
-export const AttemptedContext = createContext<IReport>(undefined!);
+import { createContext, ReactNode, useState } from "react";
 
 type Props = {
-  children: React.ReactNode;
+  children?: ReactNode;
 };
 
-export const defaultState = {
-  resetState: () => null
-};
+export interface IReport {
+  typeOfReport: string;
+  incidentDate: string;
+  clientName: string;
+  clientSurname: string;
+  clientCode: string;
+  operatorName: string;
+  operatorPosition: string;
+  dispatchedOfficer: string;
+  callSign: string;
+  arrivalTime: string;
+  streetAddress: string;
+  report: string;
+}
+
+export const AttemptedContext = createContext<IReport | null>(null);
 
 const DataProvider = ({ children }: Props) => {
-  const [typeOfReport, setTypeOfReport] = useState("");
-  const [incidentDate, setIncidentDate] = useState("");
-  const [clientName, setClientName] = useState("");
-  const [clientSurname, setClientSurname] = useState("");
-  const [clientCode, setClientCode] = useState("");
-  const [operatorName, setOperatorName] = useState("");
-  const [operatorPosition, setOperatorPosition] = useState("");
-  const [dispatchedOfficer, setDispatchedOfficer] = useState("");
-  const [callSign, setCallSign] = useState("");
-  const [arrivalTime, setArrivalTime] = useState("");
-  const [streetAddress, setStreetAddress] = useState("");
-  const [report, setReport] = useState("");
-
-  const resetState = () => {
-    setTypeOfReport("");
-    setIncidentDate("");
-    setClientName("");
-    setClientSurname("");
-    setClientCode("");
-    setOperatorName("");
-    setOperatorPosition("");
-    setDispatchedOfficer("");
-    setCallSign("");
-    setArrivalTime("");
-    setStreetAddress("");
-    setReport("");
-  };
+  const [typeOfReport, setTypeOfReport] = useState<string>("")
+  const [incidentDate, setIncidentDate] = useState<string>("");
+  const [clientName, setClientName]  = useState<string>("");
+  const [clientSurname, setClientSurname] = useState<string>("");
+  const [clientCode, setClientCode] = useState<string>("");
+  const [operatorName, setOperatorName] = useState<string>("");
+  const [operatorPosition, setOperatorPosition] = useState<string>("");
+  const [dispatchedOfficer, setDispatchedOfiicer] = useState<string>("");
+  const [callSign, setCallSign] = useState<string>("");
+  const [arrivalTime, setArrivalTime] = useState<string>("");
+  const [streetAddress, setStreetAddress] = useState<string>("");
+  const [report, setReport] = useState<string>("");
 
   const state = {
     typeOfReport,
@@ -54,7 +48,6 @@ const DataProvider = ({ children }: Props) => {
     arrivalTime,
     streetAddress,
     report,
-    resetState
   };
 
   return (
@@ -65,4 +58,3 @@ const DataProvider = ({ children }: Props) => {
 };
 
 export default DataProvider;
-

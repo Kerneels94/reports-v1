@@ -1,44 +1,39 @@
 // Imports
-import { useState } from "react"
+import { useContext } from "react"
 import database from "../../firebase/auth"
-import { IReport } from "../../interfaces/interfaces";
+import { AttemptedContext, IReport } from "../../context/attemptedContext"; 
 
 /**
  * @description  Attempted component is used to display the attempted report
  */
 const Attempted = () => {
-  const [typeOfReport, setTypeOfReport] = useState("");
-  const [incidentDate, setIncidentDate] = useState("");
-  const [clientName, setClientName] = useState("");
-  const [clientSurname, setClientSurname] = useState("");
-  const [clientCode, setClientCode] = useState("");
-  const [operatorName, setOperatorName] = useState("");
-  const [operatorPosition, setOperatorPosition] = useState("");
-  const [dispatchedOfficer, setDispatchedOfficer] = useState("");
-  const [callSign, setCallSign] = useState("");
-  const [arrivalTime, setArrivalTime] = useState("");
-  const [streetAddress, setStreetAddress] = useState(""); 
-  const [report, setReport] = useState("");
+  const { 
+    typeOfReport, 
+    incidentDate, 
+    clientName, 
+    clientSurname, 
+    clientCode, 
+    operatorName, 
+    operatorPosition, 
+    dispatchedOfficer,
+    callSign,
+    arrivalTime,
+    streetAddress,
+    report
+  } = useContext(AttemptedContext);
 
+  // Create reference for firebase database
   const reportsRef = database.ref("reports");
 
-  const handleSubmit = (e, data: IReport) => {
+  /**
+   * @description  handleSubmit is used to submit the report
+   * @param event
+   * @param data 
+   */
+  const handleSubmit = (e: any, data: IReport) => {
     e.preventDefault();
-    // Create a new report object
     try {
       reportsRef.push(data)
-      setTypeOfReport("");
-      setIncidentDate("");
-      setClientName("");
-      setClientSurname("");
-      setClientCode("");
-      setOperatorName("");
-      setOperatorPosition("");
-      setDispatchedOfficer("");
-      setCallSign("");
-      setArrivalTime("");
-      setStreetAddress("");
-      setReport("");
     } catch (error) {
       console.log(error);
     } 
@@ -50,7 +45,20 @@ const Attempted = () => {
           <h1 className="text-2xl text-center">Attempted Report</h1>
         </div>
         <div className="flex items-center justify-between">
-          <form className="p-4 shadow-md space-y-5 w-full" method="post">
+          <form className="p-4 shadow-md space-y-5 w-full" method="post" onSubmit={(e) => handleSubmit(e, {
+                  typeOfReport,
+                  incidentDate,
+                  clientName,
+                  clientSurname,
+                  clientCode,
+                  operatorName,
+                  operatorPosition,
+                  dispatchedOfficer,
+                  callSign,
+                  arrivalTime,
+                  streetAddress,
+                  report
+                })}>
             <div className="border-b border-gray-900/10 pb-12">
               <h2 className="text-base font-semibold leading-7 text-gray-900">Please provide acurate and factual information</h2>
 
@@ -62,8 +70,8 @@ const Attempted = () => {
                     <select
                       id="reportType"
                       name="reportType"
+                      ref={typeOfReport}
                       autoComplete="reportType-name"
-                      onChange={(e) => setTypeOfReport(e.target.value)}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
                       <option>House break-in</option>
@@ -82,7 +90,7 @@ const Attempted = () => {
                       type="date"
                       name="incidentDate"
                       id="incidentDate"
-                      onChange={(e) => setIncidentDate(e.target.value)}
+                      ref={incidentDate}
                       className="block w-52 rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -98,7 +106,7 @@ const Attempted = () => {
                       type="text"
                       name="first-name"
                       id="first-name"
-                      onChange={(e) => setClientName(e.target.value)}
+                      ref={clientName}
                       autoComplete="given-name"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -114,7 +122,7 @@ const Attempted = () => {
                       type="text"
                       name="last-name"
                       id="last-name"
-                      onChange={(e) => setClientSurname(e.target.value)}
+                      ref={clientSurname}
                       autoComplete="family-name"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -130,7 +138,7 @@ const Attempted = () => {
                       type="text"
                       name="clientsCode"
                       id="clientsCode"
-                      onChange={(e) => setClientCode(e.target.value)}
+                      ref={clientCode}
                       autoComplete="clientsCode"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -146,7 +154,7 @@ const Attempted = () => {
                       type="text"
                       name="operatorName"
                       id="operatorName"
-                      onChange={(e) => setOperatorName(e.target.value)}
+                      ref={operatorName}
                       autoComplete="operatorName"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -163,7 +171,7 @@ const Attempted = () => {
                       type="text"
                       name="operatorPosition"
                       id="operatorPosition"
-                      onChange={(e) => setOperatorPosition(e.target.value)}
+                      ref={operatorPosition}
                       autoComplete="operatorPosition"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -179,7 +187,7 @@ const Attempted = () => {
                       id="dispatchedOfficer"
                       name="dispatchedOfficer"
                       type="text"
-                      onChange={(e) => setDispatchedOfficer(e.target.value)}
+                      ref={dispatchedOfficer}
                       autoComplete="dispatchedOfficer"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -195,7 +203,7 @@ const Attempted = () => {
                       id="callSign"
                       name="callSign"
                       type="text"
-                      onChange={(e) => setCallSign(e.target.value)}
+                      ref={callSign}
                       autoComplete="callSign"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -211,7 +219,7 @@ const Attempted = () => {
                       id="arrivalTime"
                       name="arrivalTime"
                       type="time"
-                      onChange={(e) => setArrivalTime(e.target.value)}
+                      ref={arrivalTime}
                       autoComplete="arrivalTime"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -227,7 +235,7 @@ const Attempted = () => {
                       type="text"
                       name="street-address"
                       id="street-address"
-                      onChange={(e) => setStreetAddress(e.target.value)}
+                      ref={streetAddress}
                       autoComplete="street-address"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -239,24 +247,11 @@ const Attempted = () => {
                     Report
                   </label>
                   <div className="mt-2">
-                    <textarea name="report" id="report" cols={30} rows={10} className="w-full" onChange={(e) => {setReport(e.target.value)}}></textarea>
+                    <textarea name="report" id="report" cols={30} rows={10} className="w-full" ref={report}></textarea>
                   </div>
                 </div>
 
-                <button className="btn btn-primary" onClick={(e) => handleSubmit(e, {
-                  typeOfReport,
-                  incidentDate,
-                  clientName,
-                  clientSurname,
-                  clientCode,
-                  operatorName,
-                  operatorPosition,
-                  dispatchedOfficer,
-                  callSign,
-                  arrivalTime,
-                  streetAddress,
-                  report
-                })}>Submit Report</button>
+                <button className="btn btn-primary" type="submit">Submit Report</button>
               </div>
             </div>
           </form>  
