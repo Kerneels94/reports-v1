@@ -13,7 +13,7 @@ const Pricing = () => {
         <h1 className="text-lg">Our pricing</h1>
         <p>We offer 3 subscription based packages</p>
       </div>
-      <div className="card-container flex flex-col items-center justify-center space-y-4 lg:grid-cols-3 lg:items-center lg:gap-4">
+      <div className="card-container flex flex-col items-center justify-center space-y-4 lg:grid-cols-3 lg:gap-4">
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
           <div className="card-body">

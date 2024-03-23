@@ -1,22 +1,15 @@
 import firebase from 'firebase';
-
-// Get variables from .env file
-const apiKey = "AIzaSyBMLSO5orYOlxelvIZYvxliFFGNp-V_Ugk";
-const authDomain = "reports-55335.firebaseapp.com";
-const databaseURL = "https://reports-55335-default-rtdb.firebaseio.com";
-const projectId = "reports-55335";
-const storageBucket = "reports-55335.appspot.com";
-const messagingSenderId = "769990051034";
-const appId = "1:769990051034:web:fd3864e1299cf1dc7351e3";
+// Env file
+const env = import.meta.env
 
 const firebaseConfig = {
-    apiKey: apiKey,
-    authDomain: authDomain,
-    databaseURL: databaseURL,
-    projectId: projectId,
-    storageBucket: storageBucket,
-    messagingSenderId: messagingSenderId,
-    appId: appId
+    apiKey: env.VITE_APP_API_KEY,
+    authDomain: env.VITE_APP_AUTH_DOMAIN,
+    databaseURL: env.VITE_APP_DATABASE_URL,
+    projectId: env.VITE_APP_PROJECT_ID,
+    storageBucket: env.VITE_APP_STORAGE_BUCKET,
+    messagingSenderId: env.VITE_APP_MESSAGING_SENDER_ID,
+    appId: env.VITE_APP_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -24,3 +17,4 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
  
 export default database;
+

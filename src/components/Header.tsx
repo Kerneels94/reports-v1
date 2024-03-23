@@ -1,11 +1,14 @@
 // Imports
 
+import Login from "./Login";
+
 /**
  * @description Header component
  */
 const Header = () => {
   return (
     <>
+      <Login />
       <div className="navbar bg-base-100 p-4 flex items-center justify-between shadow-lg">
         <div>
           <a className="text-xl" href="/">
