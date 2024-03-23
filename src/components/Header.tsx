@@ -16,6 +16,9 @@ const Header = () => {
           <a className="p-1" href="/reports/">
             Reports
           </a>
+          <a className="p-1" href="/dashboard/">
+            Admin Dashboard
+          </a>
           <a className="p-1" href="/pricing/">
             Pricing
           </a>
@@ -46,6 +49,11 @@ const Header = () => {
                 <li>
                   <a className="p-1" href="/reports/">
                     Reports
+                  </a>
+                </li>
+                <li>
+                  <a className="p-1" href="/dashboard/">
+                    Admin Dashboard
                   </a>
                 </li>
                 <li>
