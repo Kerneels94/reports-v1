@@ -1,10 +1,11 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import Report from "./components/Report";
 import Pricing from "./components/Pricing";
+import Dashboard from "./components/adminDashboard/Dashboard.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
@@ -16,6 +17,10 @@ if (rootElement) {
     {
       path: "/reports",
       element: <Report />,
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
     },
     {
       path: "/pricing",
