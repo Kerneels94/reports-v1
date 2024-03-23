@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
 import Report from "./components/Report";
 import Pricing from "./components/Pricing";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

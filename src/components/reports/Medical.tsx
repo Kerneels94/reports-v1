@@ -93,7 +93,7 @@ const Medical = () => {
                       id="first-name"
                       onChange={(e) => setClientName(e.target.value)}
                       autoComplete="given-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
@@ -109,7 +109,7 @@ const Medical = () => {
                       id="last-name"
                       onChange={(e) => setClientSurname(e.target.value)}
                       autoComplete="family-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
@@ -125,7 +125,7 @@ const Medical = () => {
                       id="clientsCode"
                       onChange={(e) => setClientCode(e.target.value)}
                       autoComplete="clientsCode"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
@@ -141,7 +141,7 @@ const Medical = () => {
                       id="operatorName"
                       onChange={(e) => setOperatorName(e.target.value)}
                       autoComplete="operatorName"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
@@ -158,7 +158,7 @@ const Medical = () => {
                       id="operatorPosition"
                       onChange={(e) => setOperatorPosition(e.target.value)}
                       autoComplete="operatorPosition"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
@@ -174,7 +174,7 @@ const Medical = () => {
                       type="text"
                       onChange={(e) => setDispatchedOfficer(e.target.value)}
                       autoComplete="dispatchedOfficer"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
@@ -190,7 +190,7 @@ const Medical = () => {
                       type="text"
                       onChange={(e) => setCallSign(e.target.value)}
                       autoComplete="callSign"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
@@ -206,7 +206,7 @@ const Medical = () => {
                       type="time"
                       onChange={(e) => setArrivalTime(e.target.value)}
                       autoComplete="arrivalTime"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
@@ -222,7 +222,7 @@ const Medical = () => {
                       id="street-address"
                       onChange={(e) => setStreetAddress(e.target.value)}
                       autoComplete="street-address"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="standard-input"
                     />
                   </div>
                 </div>
