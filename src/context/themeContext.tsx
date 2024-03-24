@@ -4,6 +4,7 @@
  */
 
 import { createContext, ReactNode, useState } from "react";
+import { ThemeContextType } from "../types/types";
 
 // Create a context
 const ThemeContext = createContext({});
@@ -15,7 +16,7 @@ const ThemeContext = createContext({});
  */
 
 const ThemeProvider = ({ children }: { children: ReactNode }): JSX.Element => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState<ThemeContextType>({theme: "light", setTheme: (theme: string) => {return theme}});
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
