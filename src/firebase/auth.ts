@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, push, update } from "firebase/database";
 import { getAuth } from "firebase/auth";
-// TODO import report types
+import { AttemptedPositiveReportType } from "../types/types";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBMLSO5orYOlxelvIZYvxliFFGNp-V_Ugk",
@@ -21,11 +21,35 @@ const database = getDatabase(app);
 
 const reportsRef = ref(database, "users");
 
-function addReport() {
+function addReport(
+  typeOfReport: "Attempted" | "Positive",
+  incidentDate: Date,
+  clientName: string,
+  clientSurname: string,
+  clientCode: string,
+  operatorName: string,
+  operatorPosition: string,
+  dispatchedOfficer: string,
+  callSign: string,
+  arrivalTime: string,
+  streetAddress: string,
+  report: string
+) {
   // Report Data
-  const reportData = {
-    author: "username",
-    uid: "uid",
+  const reportData: AttemptedPositiveReportType = {
+    typeOfReport: typeOfReport,
+    incidentDate: incidentDate,
+    clientName: clientName,
+    clientSurname: clientSurname,
+    clientCode: clientCode,
+    operatorName: operatorName,
+    operatorPosition: operatorPosition,
+    dispatchedOfficer: dispatchedOfficer,
+    callSign: callSign,
+    arrivalTime: arrivalTime,
+    streetAddress: streetAddress,
+    report: report,
+    createdDate: new Date(),
   };
 
   // Get a key for a new report.
@@ -34,7 +58,7 @@ function addReport() {
   // TODO: define a type for report data
   const updates: any = {};
 
-  updates['/reports/' + reportKey] = reportData;
+  updates["/reports/" + reportKey] = reportData;
 
   return update(ref(database), updates);
 }
