@@ -20,7 +20,7 @@ export type ThemeContextType = {
  * @description: Attempted/Positive report type
  */
 export type AttemptedPositiveReportType = {
-    typeOfReport: string, 
+    typeOfReport: "Attempted" | "Positive", 
     incidentDate: Date, 
     clientName: string, 
     clientSurname: string, 
@@ -32,13 +32,14 @@ export type AttemptedPositiveReportType = {
     arrivalTime: string, 
     streetAddress: string, 
     report: string,
+    createdDate: Date,
 }
 
 /**
  * @description: Medical report type
  */
 export type MedicalReportType = {
-    typeOfReport: string, 
+    typeOfReport: "Medical", 
     incidentDate: Date, 
     clientName: string, 
     clientSurname: string, 
@@ -52,4 +53,5 @@ export type MedicalReportType = {
     report: string,
     emtCallSigns: string,
     emtName: string,
+    createdDate: Date,
 }
