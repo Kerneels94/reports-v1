@@ -1,6 +1,7 @@
 // Imports
 
 import Login from "./Login";
+import ThemeSwicther from "./ThemeSwicther";
 
 /**
  * @description Header component
@@ -12,8 +13,9 @@ const Header = () => {
       <div className="navbar bg-base-100 p-4 flex items-center justify-between shadow-lg">
         <div>
           <a className="text-xl" href="/">
-            Reports
+            Reports 
           </a>
+          <ThemeSwicther />
         </div>
         <div className="links hidden lg:block">
           <a className="p-1" href="/reports/">
