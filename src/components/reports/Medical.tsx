@@ -22,7 +22,7 @@ const Medical = () => {
   const [report, setReport] = useState<string>("");
 
   // Create reference for firebase database
-  const reportsRef = database.ref("reports");
+  const reportsRef = database.database.ref("reports");
 
   /**
    * @description  handleSubmit is used to submit the report
@@ -45,12 +45,12 @@ const Medical = () => {
           <h1 className="text-2xl text-center">Medical Report</h1>
         </div>
         <div className="flex items-center justify-between">
-          <form className="p-4 shadow-md space-y-5 w-full" method="post">
+        <form className="p-4 shadow-md space-y-5 w-full" method="post">
             <div className="border-b border-gray-900/10 pb-12">
-              <h2 className="text-base font-semibold leading-7 text-gray-900">Please provide acurate and factual information</h2>
+              <h2 className="text-base font-semibold leading-7 text-gray-900 dark:text-white">Please provide acurate and factual information</h2>
 
               <div className="sm:col-span-2">
-                  <label htmlFor="reportType" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="reportType" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Type of report
                   </label>
                   <div className="mt-2">
@@ -59,7 +59,7 @@ const Medical = () => {
                       name="reportType"
                       onChange={(e) => setTypeOfReport(e.target.value)}
                       autoComplete="reportType-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 dark:text-white"
                     >
                       <option>Medical</option>
                     </select>
@@ -67,7 +67,7 @@ const Medical = () => {
               </div>
 
               <div className="sm:col-span-2">
-                  <label htmlFor="incidentDate" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="incidentDate" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Incident Date
                   </label>
                   <div className="mt-2 ">
@@ -76,14 +76,14 @@ const Medical = () => {
                       name="incidentDate"
                       id="incidentDate"
                       onChange={(e) => setIncidentDate(e.target.value)}
-                      className="block w-52 rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-52 rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:text-white"
                     />
                   </div>
               </div>
 
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-2">
-                  <label htmlFor="clientsName" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="clientsName" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Client's name
                   </label>
                   <div className="mt-2">
@@ -93,13 +93,13 @@ const Medical = () => {
                       id="first-name"
                       onChange={(e) => setClientName(e.target.value)}
                       autoComplete="given-name"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label htmlFor="clientsSurname" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="clientsSurname" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Client's surname
                   </label>
                   <div className="mt-2">
@@ -109,13 +109,13 @@ const Medical = () => {
                       id="last-name"
                       onChange={(e) => setClientSurname(e.target.value)}
                       autoComplete="family-name"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label htmlFor="clientsCode" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="clientsCode" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Client Code
                   </label>
                   <div className="mt-2">
@@ -125,13 +125,13 @@ const Medical = () => {
                       id="clientsCode"
                       onChange={(e) => setClientCode(e.target.value)}
                       autoComplete="clientsCode"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
 
                 <div className="sm:col-span-3">
-                  <label htmlFor="operatorName" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="operatorName" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Operator name
                   </label>
                   <div className="mt-2">
@@ -141,14 +141,14 @@ const Medical = () => {
                       id="operatorName"
                       onChange={(e) => setOperatorName(e.target.value)}
                       autoComplete="operatorName"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
 
                 
                 <div className="sm:col-span-3">
-                  <label htmlFor="operatorPosition" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="operatorPosition" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Operator position
                   </label>
                   <div className="mt-2">
@@ -158,13 +158,13 @@ const Medical = () => {
                       id="operatorPosition"
                       onChange={(e) => setOperatorPosition(e.target.value)}
                       autoComplete="operatorPosition"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Response officer dispatched
                   </label>
                   <div className="mt-2">
@@ -174,13 +174,13 @@ const Medical = () => {
                       type="text"
                       onChange={(e) => setDispatchedOfficer(e.target.value)}
                       autoComplete="dispatchedOfficer"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Response Officer call sign
                   </label>
                   <div className="mt-2">
@@ -190,13 +190,13 @@ const Medical = () => {
                       type="text"
                       onChange={(e) => setCallSign(e.target.value)}
                       autoComplete="callSign"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
                 
                 <div className="sm:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Armed Response Arrival Time
                   </label>
                   <div className="mt-2">
@@ -206,13 +206,13 @@ const Medical = () => {
                       type="time"
                       onChange={(e) => setArrivalTime(e.target.value)}
                       autoComplete="arrivalTime"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
 
                 <div className="col-span-full">
-                  <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Street address
                   </label>
                   <div className="mt-2">
@@ -222,17 +222,17 @@ const Medical = () => {
                       id="street-address"
                       onChange={(e) => setStreetAddress(e.target.value)}
                       autoComplete="street-address"
-                      className="standard-input"
+                      className="standard-input dark:text-white"
                     />
                   </div>
                 </div>
 
                 <div className="col-span-full">
-                  <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                  <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                     Report
                   </label>
                   <div className="mt-2">
-                    <textarea name="report" id="report" cols={30} rows={10} className="w-full" onChange={(e) => setReport(e.target.value)}></textarea>
+                    <textarea name="report" id="report" cols={30} rows={10} className="w-full dark:text-white p-2" onChange={(e) => setReport(e.target.value)}></textarea>
                   </div>
                 </div>
 
