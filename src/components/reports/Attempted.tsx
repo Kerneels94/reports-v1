@@ -1,6 +1,6 @@
 // Imports
 import { useState } from "react";
-import database from "../../firebase/auth"
+import fb from "../../firebase/auth"
 // import { useAttemptedContext } from "../../hooks/hooks";
 
 /**
@@ -22,7 +22,7 @@ const Attempted = () => {
   const [report, setReport] = useState<string>("");
 
   // Create reference for firebase database
-  const reportsRef = database.database.ref("reports");
+  // const reportsRef = database.ref("reports");
 
   /**
    * @description  handleSubmit is used to submit the report
@@ -33,7 +33,8 @@ const Attempted = () => {
   const handleSubmit = (e: any, data) => {
     e.preventDefault();
     try {
-        reportsRef.push(data);
+        // reportsRef.push(data);
+        fb.addReport()
     } catch (error) {
       console.log(error);
     } 
