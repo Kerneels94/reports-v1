@@ -1,14 +1,14 @@
 // Firebase
-import fb from '../firebase/auth';
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import fb from './auth';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function loginUser(email: string, password: string) {
     // Firebase login in user
-    createUserWithEmailAndPassword(fb.firebaseAuth, email, password)
+    createUserWithEmailAndPassword(fb.auth, email, password)
       .then((userCredential: any) => {
         console.log('Store: ', userCredential.user)
           const user = userCredential.user;
-          return user;
+          return user;  
       })
       .catch((error: any) => {
         // todo display error popup
