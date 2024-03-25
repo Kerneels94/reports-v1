@@ -13,7 +13,6 @@ export type Props = {
  */
 export type ThemeContextType = {
     theme: "light" | "dark";
-    setTheme: (theme: string) => void;
 }
 
 /**
