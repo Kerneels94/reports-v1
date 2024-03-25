@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import  { AttemptedContext } from '../context/attemptedContext';
 
 /**
@@ -15,4 +15,24 @@ export function useAttemptedContext() {
     }
 
     return context;
+}
+
+
+/**
+ * @description Custom hook to change theme
+ */
+
+export const useThemeDetector = () => {
+    const getCurrentTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const [isDarkTheme, setIsDarkTheme] = useState(getCurrentTheme());  
+    const mqListener = (e => {
+        setIsDarkTheme(e.matches);
+    });
+    
+    useEffect(() => {
+      const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+      darkThemeMq.addListener(mqListener);
+      return () => darkThemeMq.removeListener(mqListener);
+    }, []);
+    return isDarkTheme;
 }
